@@ -174,7 +174,6 @@ endif()
 # install binary
 install(TARGETS netopeer2-server DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-if(FALSE)
 # only for configuration
 if (ENABLE_CONFIGURATION)
     # Configure install file
@@ -212,7 +211,6 @@ endif()
 add_custom_target(install-scripts-ide
     ${PROJECT_BINARY_DIR}/model-install.sh
 )
-endif()
 
 configure_file("${PROJECT_SOURCE_DIR}/config.h.in" "${PROJECT_SOURCE_DIR}/config.h" ESCAPE_QUOTES @ONLY)
 configure_file("${PROJECT_SOURCE_DIR}/config.h.in" "${PROJECT_BINARY_DIR}/config.h" ESCAPE_QUOTES @ONLY)
