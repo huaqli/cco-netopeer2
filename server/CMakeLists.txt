@@ -179,6 +179,7 @@ if (ENABLE_CONFIGURATION)
     # Configure install file
     configure_file("${CMAKE_CURRENT_SOURCE_DIR}/scripts/model-install.sh.in" "${PROJECT_BINARY_DIR}/model-install.sh" ESCAPE_QUOTES @ONLY)
 
+    #[[
     # find sysrepoctl
     if (NOT SYSREPOCTL_EXECUTABLE)
         find_program(SYSREPOCTL_EXECUTABLE sysrepoctl)
@@ -206,15 +207,16 @@ if (ENABLE_CONFIGURATION)
         set(ENV{SYSREPOCFG} ${SYSREPOCFG_EXECUTABLE})
         set(ENV{SYSREPOCTL_ROOT_PERMS} SYSREPOCTL_ROOT_PERMS)
         execute_process(COMMAND ${PROJECT_BINARY_DIR}/model-install.sh)")
+    ]]
 endif()
 
-add_custom_target(install-scripts-ide
-    ${PROJECT_BINARY_DIR}/model-install.sh
-)
+#add_custom_target(install-scripts-ide
+#    ${PROJECT_BINARY_DIR}/model-install.sh
+#)
 
 configure_file("${PROJECT_SOURCE_DIR}/config.h.in" "${PROJECT_SOURCE_DIR}/config.h" ESCAPE_QUOTES @ONLY)
-configure_file("${PROJECT_SOURCE_DIR}/config.h.in" "${PROJECT_BINARY_DIR}/config.h" ESCAPE_QUOTES @ONLY)
-include_directories(${PROJECT_BINARY_DIR})
+#configure_file("${PROJECT_SOURCE_DIR}/config.h.in" "${PROJECT_BINARY_DIR}/config.h" ESCAPE_QUOTES @ONLY)
+#include_directories(${PROJECT_BINARY_DIR})
 
 # clean cmake cache
 add_custom_target(cleancache
